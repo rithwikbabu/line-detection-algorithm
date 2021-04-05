@@ -14,13 +14,13 @@ while 1:
     # Convert BGR to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # define range of blue color in HSV
-    lower_blue = np.array([0, 70, 50])
-    # lower_blue = np.array([0, 150, 75])
-    upper_blue = np.array([5, 255, 255])
+    # define range of red color in HSV
+    lower_red = np.array([0, 70, 50])
+    # lower_red = np.array([0, 150, 75])
+    upper_red = np.array([5, 255, 255])
 
     # Threshold the HSV image to get only blue colors
-    mask = cv2.inRange(hsv, lower_blue, upper_blue)
+    mask = cv2.inRange(hsv, lower_red, upper_red)
 
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame, frame, mask=mask)
